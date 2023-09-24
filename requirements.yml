@@ -1,0 +1,16 @@
+name: PyCDO
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - urllib3
+  - pip
+  - pip:
+    - SPARQLWrapper==2.0.0
+    - python-dateutil
+    - Werkzeug
+    - git+https://github.com/csse-uoft/owlready2.git
+    - git+https://github.com/csse-uoft/graphdb-importer
