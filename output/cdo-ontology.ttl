@@ -247,7 +247,7 @@
 ###  https://onto.colossi.network/cdo#Action
 :Action rdf:type owl:Class ;
         rdfs:subClassOf :Objective ,
-                        :Systemic .
+                        :Systematic .
 
 
 ###  https://onto.colossi.network/cdo#Active
@@ -326,7 +326,7 @@
 :Event rdf:type owl:Class ;
        rdfs:subClassOf :Active ,
                        :Causable ,
-                       :Systemic .
+                       :Stemmatic .
 
 
 ###  https://onto.colossi.network/cdo#Fact
@@ -400,8 +400,8 @@
 :Object rdf:type owl:Class ;
         rdfs:subClassOf :Morphological ,
                         :Passive ,
-                        :Stemmatic ,
-                        :Structure .
+                        :Structure ,
+                        :Systemic .
 
 
 ###  https://onto.colossi.network/cdo#Objective
@@ -466,7 +466,7 @@
 
 ###  https://onto.colossi.network/cdo#Stemmatic
 :Stemmatic rdf:type owl:Class ;
-           rdfs:subClassOf :Mereology .
+           rdfs:subClassOf :Behaviour .
 
 
 ###  https://onto.colossi.network/cdo#Structure
@@ -479,9 +479,14 @@
             rdfs:subClassOf :Perspective .
 
 
+###  https://onto.colossi.network/cdo#Systematic
+:Systematic rdf:type owl:Class ;
+            rdfs:subClassOf :Behaviour .
+
+
 ###  https://onto.colossi.network/cdo#Systemic
 :Systemic rdf:type owl:Class ;
-          rdfs:subClassOf :Behaviour .
+          rdfs:subClassOf :Mereology .
 
 
 ###  https://onto.colossi.network/cdo#Text

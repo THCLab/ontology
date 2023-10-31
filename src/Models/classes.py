@@ -28,7 +28,10 @@ with cdo:
     class Objective(Perspective):
         pass
 
-    class Systemic(Behaviour):
+    class Stemmatic(Behaviour):
+        pass
+
+    class Systematic(Behaviour):
         pass
 
     # Object ###############################
@@ -44,13 +47,13 @@ with cdo:
     class Morphological(CDOThing):
         pass
 
-    class Stemmatic(Mereology):
+    class Systemic(Mereology):
         pass
 
     class Passive(Behaviour):
         pass
 
-    class Object(Passive, Stemmatic, Morphological, Structure):
+    class Object(Passive, Systemic, Morphological, Structure):
         pass
 
     class Text(CDOThing):
@@ -80,7 +83,7 @@ with cdo:
     class Active(Behaviour):
         pass
 
-    class Event(Causable, Systemic, Active):
+    class Event(Causable, Stemmatic, Active):
         pass
 
     class Topology(Mereology):
@@ -161,7 +164,7 @@ with cdo:
         pass
 
     # Action ###############################
-    class Action(Systemic, Objective):
+    class Action(Systematic, Objective):
         pass
 
     class Packet(CDOThing):

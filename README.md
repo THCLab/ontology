@@ -28,8 +28,10 @@ Ontology design is in two files:
 
 The following command uses thse defintoins to generate the .OWL file:
 
+1. `cd ontology`
+
 1. Run `python -m src.generate_ontology`
 
-2. Check output in [output/cdo-ontology.owl](output/cdo-ontology.owl)
+1. Review output in [output/cdo-ontology.owl](output/cdo-ontology.owl)
 
-3. Use Protege to generate a Turle (.ttl) file from the .owl file, such as [output/cdo-ontology.ttl](output/cdo-ontology.ttl).
+1. Use Protege to generate a Turle (.ttl) file from the .owl file, such as [output/cdo-ontology.ttl](output/cdo-ontology.ttl).
