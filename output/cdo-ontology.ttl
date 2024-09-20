@@ -8,7 +8,7 @@
 
 <https://onto.colossi.network/cdo> rdf:type owl:Ontology ;
         <https://eupl.eu/1.2> "https://eupl.eu/1.2/en/" ;
-        <https://onto.colossi.network/cdo#adms:relatedDocumentation> "Knowles, P. and Gajderowicz, B., “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 10th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
+        <https://onto.colossi.network/cdo#adms:relatedDocumentation> "Knowles, P., Gajderowicz, B. and Dougas, K. (2024) “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 9th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
         <https://onto.colossi.network/cdo#vann:preferredNamespacePrefix> "cdo" ;
         <https://onto.colossi.network/cdo#vann:preferredNamespaceUri> "https://raw.githubusercontent.com/THCLab/ontology/refs/heads/main/output/cdo-ontology.ttl" ;
         <http://purl.org/dc/elements/1.1/creator> "Paul Knowles (paul.knowles@humancolossus.org)" ,
