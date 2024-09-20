@@ -8,277 +8,205 @@ with cdo:
         pass
     rdfs.comment[CDOThing] = ["CDOThing is the top CDO class."]
 
-    class Disposition(CDOThing):
+    #======================================
+    class Behaviour(CDOThing):
         pass
-
-    #######################################
-    class Behaviour(Disposition):
-        pass
-
-    class Mereology(CDOThing):
-        pass
-
-
-    class Perspective(Disposition):
-        pass
-
-    class Subjective(Perspective):
-        pass
-
-    class Objective(Perspective):
-        pass
-
-    class Stemmatic(Behaviour):
-        pass
-
-    class Systematic(Behaviour):
-        pass
-
-    # Object ###############################
-    class Structure(Mereology):
-        pass
-
-    class Form(CDOThing):
-        pass
-
-    class hasForm(Structure >> Form):
-        pass
-
-    class Morphological(CDOThing):
-        pass
-
-    class Systemic(Mereology):
-        pass
-
     class Passive(Behaviour):
         pass
-
-    class Object(Passive, Systemic, Morphological, Structure):
+    class Active(Behaviour):
         pass
 
-    class Text(CDOThing):
+    class Perspective(CDOThing):
         pass
-
-    class hasTexttual(Object >> Text):
+    class Objective(Perspective):
         pass
-
-    class Schema(CDOThing):
+    class Subjective(Perspective):
         pass
-
-    class hasSchema(Object >> Schema):
+    #######################################
+    class Object(Passive):
         pass
 
     class Attribute(CDOThing):
         pass
+
+    class isDefinedBy(Object >> Attribute):
+        pass
+
+    class Form(CDOThing):
+        pass
+    class hasForm(Attribute >> Form):
+        pass
+
+    class Schema(CDOThing):
+        pass
+    class isSystemic(Form >> Schema):
+        pass
     class hasAttributes(Schema >> Attribute):
         pass
-
-    
-
-    # Event ###############################
-
-    class Causable(Disposition):
+    class Text(CDOThing):
+        pass
+    class isTextual(Schema >> Text):
         pass
 
-    class Active(Behaviour):
-        pass
-
-    class Event(Causable, Stemmatic, Active):
-        pass
-
-    class Topology(Mereology):
-        pass
-
-    class Record(CDOThing):
-        pass
-
-    class hasRecord(Event >> Record):
-        pass
-
-    class LogEntry(CDOThing):
-        pass
-
-    class hasLogEntry(Event >> LogEntry):
-        pass
-
-    class Log(CDOThing):
-        pass
-
-    class inLog(LogEntry >> Log):
+    #######################################
+    class Event(Objective):
         pass
 
     class Field(CDOThing):
         pass
-
-    class hasField(Event >> Field):
+    class occursIn(Event >> Field):
         pass
 
-    class isTracaebleIn(LogEntry >> Topology):
+    class Log(CDOThing):
+        pass
+    class isLogged(Field >> Log):
         pass
 
-    class auditedBy(Log >> Topology):
+    class Record(CDOThing):
+        pass
+    class isStemmatic(Log >> Record):
+        pass
+
+    class Track(CDOThing):
+        pass
+    class isTractual(Record >> Track):
         pass
 
 
-    # Concept #############################
-    class Epistemic(CDOThing):
+    #------------------------------
+    class Stemma(CDOThing):
+        pass
+    class underpins(Text >> Stemma):
+        pass
+    class hasLineage(Track >> Stemma):
+        pass
+
+
+
+    #===============================
+    class Cause(CDOThing):
+        pass
+    class Scheme(CDOThing):
+        pass
+    class traces(Stemma >> Cause):
+        pass
+    class isAddressedBy(Cause >> Scheme):
+        pass
+    class hasStructure(Object >> Scheme):
+        pass
+    class isCausedBy(Event >> Cause):
+        pass
+    class isCausal(Object >> Cause):
+        pass
+
+    #######################################
+    class Concept(Subjective):
+        pass
+
+    class Term(CDOThing):
+        pass
+    class describedBy(Concept >> Term):
         pass
     
-    class Concept(Subjective, Epistemic):
-        pass
-
-    class Observation(CDOThing):
-        pass
-
-    class fromObservation(Epistemic >> Observation):
-        pass
-
-    class Context(CDOThing):
-        pass
-    class hasContext(Concept >> Context):
-        pass
-
     class Notice(CDOThing):
         pass
-
-    class hasNotice(Concept >> Notice):
-        pass
-
-    class Literal(CDOThing):
-        pass
-
-    class hasTerm(Concept >> Literal):
+    class isDocumentedIn(Term >> Notice):
         pass
 
     class Frame(CDOThing):
         pass
-
-    class hasFrame(Concept >> Frame):
+    class isFramedBy(Notice >> Frame):
         pass
 
-    class Knowledge(Mereology):
+    class Context(CDOThing):
         pass
-    rdfs.comment[Knowledge] = ["A Knowledge Graph that stores wat is known by the agent about the Concept."]
-
-    class nodeIn(Concept >> Knowledge):
+    class isContextual(Frame >> Context):
         pass
-
-    # Action ###############################
-    class Action(Systematic, Objective):
+    
+    class contextualizes(Concept >> Object):
         pass
 
-    class Packet(CDOThing):
+    class hasKnowledge(Concept >> Scheme):
+        pass
+    #===============================
+    class Goal(CDOThing):
+        pass
+    class isAchieved(Event >> Goal):
+        pass
+    class defines(Concept >> Goal):
         pass
 
-    class hasPacket(Action >> Packet):
-        pass
 
-    class Payload(CDOThing):
-        pass
-    class hasPayload(Packet >> Payload):
+
+    #######################################
+    class Action(Active):
         pass
 
     class Value(CDOThing):
         pass
+    class processes(Action >> Value):
+        pass
 
-    class hasPayloadValue(Payload >> Value):
+    class Payload(CDOThing):
+        pass
+    class constitutes(Value >> Payload):
+        pass
+                
+    class Packet(CDOThing):
+        pass
+    class isTransmittedBy(Payload >> Packet):
         pass
 
     class Fact(CDOThing):
         pass
-    rdfs.comment[Fact] = ["A Value is factual once a Packet's ACK is received."]
-
-    class isFactual(Action >> Fact):
+    rdfs.comment[Fact] = ["A Value is factual once a Packet's ACK (acknowledgement) message is received."]
+    class isBasisFor(Packet >> Fact):
         pass
 
-    class hasValuePart(Fact >> Value):
-        pass 
-
-
-    class Intelligence(CDOThing):
-        # todo
+    class triggers(Action >> Event):
         pass
-
-    class HumanIntelligence(Intelligence):
+    #======================================
+    class Method(CDOThing):
         pass
-
-    class ArtificialIntelligence(Intelligence):
-        pass
-
-    class hasIntelligence(Action >> Intelligence):
-        pass
-
-    class causedBy(Event >> Action):
-        pass
-
-    # Data #####################################
-    class Data(CDOThing):
-        pass
-
-    class capturedBy(Data >> Object):
-        pass
-
-    class centeredBy(Data >> Event):
-        pass
-
-    class accessedAs(Data >> Concept):
-        pass
-
-    class exchangedIn(Data >> Packet):
-        pass
-
-    class recordOf(Record >> Data):
-        pass
-
-    # ConsensualScheme ########################
-    class ConsensualScheme(Mereology):
-        pass
-
-    class hasConsensualScheme(Data >> ConsensualScheme):
-        pass
-
-    class Consensus(CDOThing):
-        pass
-
-    class Scheme(Mereology):
-        pass
-
-    class hasConsensusOnSubSchema(Schema >> Scheme):
-        pass
-
-    class hasConsensus(ConsensualScheme >> Consensus):
-        pass
-
-    class hasScheme(ConsensualScheme >> Scheme):
-        pass
-
-    class hasConcept(ConsensualScheme >> Concept):
-        pass
-
-    class hasConsensusOnSubGraphOf(Knowledge >> Scheme):
-        pass
-
-    # SovereignReason ##########################
-    class SovereignReason(CDOThing):
-        pass
-
-    class Agent(CDOThing):
-        pass
-
-    class Sovereignity(CDOThing):
-        pass
-
     class Reason(CDOThing):
         pass
-
-    class sovereignBy(SovereignReason >> Sovereignity):
+    class instanceOf(Action >> Method):
+        pass
+    class isExpressedAs(Concept >> Method):
+        pass
+    class isJustifiedBy(Method >> Reason):
+        pass
+    class hasIntelligence(Action >> Reason):
+        pass
+    class hasCausality(Event >> Reason):
         pass
 
-    class forEvent(SovereignReason >> Event):
+    #-----------------------------------------
+    class Package(CDOThing):
         pass
-
-    class hasSovereignity(Agent >> Sovereignity):
+    class formsBasisOf(Context >> Package):
         pass
+    class hasValidity(Fact >> Package):
+        pass
+    class utlizes(Package >> Method):
+        pass
+    #======================================
+    class Effect(CDOThing):
+        pass
+    class resultsIn(Action  >> Effect):
+        pass
+    class isAffectedBy(Object >> Effect):
+        pass
+    
 
-    class hasReason(SovereignReason >> Reason):
+    #######################################
+    class Data(CDOThing):
+        pass
+    class capturedAs (Data >> Object):
+        pass
+    class exchangedThrough(Data >> Action):
+        pass
+    class enteredAs(Data >> Event):
+        pass
+    class accessedBy(Data >> Concept):
         pass
