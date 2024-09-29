@@ -7,17 +7,10 @@
 @base <https://onto.colossi.network/cdo> .
 
 <https://onto.colossi.network/cdo> rdf:type owl:Ontology ;
-<<<<<<< HEAD
-        <https://eupl.eu/1.2> "https://eupl.eu/1.2/en/" ;
-        <https://onto.colossi.network/cdo#adms:relatedDocumentation> "Knowles, P., Gajderowicz, B. and Dougas, K. (2024) “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 9th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
-        <https://onto.colossi.network/cdo#vann:preferredNamespacePrefix> "cdo" ;
-        <https://onto.colossi.network/cdo#vann:preferredNamespaceUri> "https://raw.githubusercontent.com/THCLab/ontology/refs/heads/main/output/cdo-ontology.ttl" ;
-=======
         <https://eupl.eu/1.2> "https://eupl.eu/1.2/en/";
         <http://www.w3.org/ns/adms/relatedDocumentation> "Knowles, P., Gajderowicz, B., and Dugas, K., “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 10th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
         <http://purl.org/vocab/vann/preferredNamespacePrefix> "cdo" ;
         <http://purl.org/vocab/vann/preferredNamespaceUri> "https://raw.githubusercontent.com/THCLab/ontology/refs/heads/main/output/cdo-ontology.ttl" ;
->>>>>>> 2a2c8fc (updated CDO Cause and Effect class definitions")
         <http://purl.org/dc/elements/1.1/creator> "Paul Knowles (paul.knowles@humancolossus.org)" ,
                                                 "Bart Gajderowicz (bartg@mie.utoronto.ca)" ,
                                                 "Kieth Dugas (keith@secours.ai)" ;
