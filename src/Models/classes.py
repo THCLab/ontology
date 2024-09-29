@@ -84,19 +84,19 @@ with cdo:
 
 
     #===============================
-    class Cause(CDOThing):
+    class Effect(CDOThing):
         pass
     class Scheme(CDOThing):
         pass
-    class traces(Stemma >> Cause):
+    class traces(Stemma >> Effect):
         pass
-    class isAddressedBy(Cause >> Scheme):
+    class isAddressedBy(Effect >> Scheme):
         pass
     class hasStructure(Object >> Scheme):
         pass
-    class isCausedBy(Event >> Cause):
+    class demonstrates(Event >> Effect):
         pass
-    class isCausal(Object >> Cause):
+    class isCausal(Object >> Effect):
         pass
 
     #######################################
@@ -191,11 +191,11 @@ with cdo:
     class utlizes(Package >> Method):
         pass
     #======================================
-    class Effect(CDOThing):
+    class Cause(CDOThing):
         pass
-    class resultsIn(Action  >> Effect):
+    class innitiates(Action  >> Cause):
         pass
-    class isAffectedBy(Object >> Effect):
+    class isAffectedBy(Object >> Cause):
         pass
     
 

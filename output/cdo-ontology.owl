@@ -65,11 +65,11 @@
 
 <owl:ObjectProperty rdf:about="#traces">
   <rdfs:domain rdf:resource="#Stemma"/>
-  <rdfs:range rdf:resource="#Cause"/>
+  <rdfs:range rdf:resource="#Effect"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#isAddressedBy">
-  <rdfs:domain rdf:resource="#Cause"/>
+  <rdfs:domain rdf:resource="#Effect"/>
   <rdfs:range rdf:resource="#Scheme"/>
 </owl:ObjectProperty>
 
@@ -78,14 +78,14 @@
   <rdfs:range rdf:resource="#Scheme"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#isCausedBy">
+<owl:ObjectProperty rdf:about="#demonstrates">
   <rdfs:domain rdf:resource="#Event"/>
-  <rdfs:range rdf:resource="#Cause"/>
+  <rdfs:range rdf:resource="#Effect"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#isCausal">
   <rdfs:domain rdf:resource="#Object"/>
-  <rdfs:range rdf:resource="#Cause"/>
+  <rdfs:range rdf:resource="#Effect"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#describedBy">
@@ -193,14 +193,14 @@
   <rdfs:range rdf:resource="#Method"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#resultsIn">
+<owl:ObjectProperty rdf:about="#initiates">
   <rdfs:domain rdf:resource="#Action"/>
-  <rdfs:range rdf:resource="#Effect"/>
+  <rdfs:range rdf:resource="#Cause"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#isAffectedBy">
   <rdfs:domain rdf:resource="#Object"/>
-  <rdfs:range rdf:resource="#Effect"/>
+  <rdfs:range rdf:resource="#Cause"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#capturedAs">
@@ -296,7 +296,7 @@
   <rdfs:subClassOf rdf:resource="#CDOThing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Cause">
+<owl:Class rdf:about="#Effect">
   <rdfs:subClassOf rdf:resource="#CDOThing"/>
 </owl:Class>
 
@@ -361,7 +361,7 @@
   <rdfs:subClassOf rdf:resource="#CDOThing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Effect">
+<owl:Class rdf:about="#Cause">
   <rdfs:subClassOf rdf:resource="#CDOThing"/>
 </owl:Class>
 

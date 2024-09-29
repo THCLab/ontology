@@ -7,12 +7,20 @@
 @base <https://onto.colossi.network/cdo> .
 
 <https://onto.colossi.network/cdo> rdf:type owl:Ontology ;
+<<<<<<< HEAD
         <https://eupl.eu/1.2> "https://eupl.eu/1.2/en/" ;
         <https://onto.colossi.network/cdo#adms:relatedDocumentation> "Knowles, P., Gajderowicz, B. and Dougas, K. (2024) “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 9th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
         <https://onto.colossi.network/cdo#vann:preferredNamespacePrefix> "cdo" ;
         <https://onto.colossi.network/cdo#vann:preferredNamespaceUri> "https://raw.githubusercontent.com/THCLab/ontology/refs/heads/main/output/cdo-ontology.ttl" ;
+=======
+        <https://eupl.eu/1.2> "https://eupl.eu/1.2/en/";
+        <http://www.w3.org/ns/adms/relatedDocumentation> "Knowles, P., Gajderowicz, B., and Dugas, K., “Data-Centric Design: Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems,” In Proceedings of the 10th International Conference on Data Mining & Knowledge Management (DaKM 2024)" ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix> "cdo" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri> "https://raw.githubusercontent.com/THCLab/ontology/refs/heads/main/output/cdo-ontology.ttl" ;
+>>>>>>> 2a2c8fc (updated CDO Cause and Effect class definitions")
         <http://purl.org/dc/elements/1.1/creator> "Paul Knowles (paul.knowles@humancolossus.org)" ,
-                                                "Bart Gajderowicz (bartg@mie.utoronto.ca)" ;
+                                                "Bart Gajderowicz (bartg@mie.utoronto.ca)" ,
+                                                "Kieth Dugas (keith@secours.ai)" ;
         <http://purl.org/dc/elements/1.1/description> """Introducing an Informatics Domain Model and Core Data Ontology for Computational Systems.""" ;
         <http://purl.org/dc/elements/1.1/issued> "2024-09-20T00:00:00"^^xsd:dateTime ;
         <http://purl.org/dc/elements/1.1/modified> "2024-09-20T00:00:00"^^xsd:dateTime ;
@@ -24,52 +32,64 @@
 #    Object Properties
 #################################################################
 
-###  https://onto.colossi.network/cdo#accessedAs
-:accessedAs rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#accessedBy
+:accessedBy rdf:type owl:ObjectProperty ;
             rdfs:domain :Data ;
             rdfs:range :Concept .
 
 
-###  https://onto.colossi.network/cdo#auditedBy
-:auditedBy rdf:type owl:ObjectProperty ;
-           rdfs:domain :Log ;
-           rdfs:range :Topology .
-
-
-###  https://onto.colossi.network/cdo#capturedBy
-:capturedBy rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#capturedAs
+:capturedAs rdf:type owl:ObjectProperty ;
             rdfs:domain :Data ;
             rdfs:range :Object .
 
 
-###  https://onto.colossi.network/cdo#causedBy
-:causedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :Event ;
-          rdfs:range :Action .
+###  https://onto.colossi.network/cdo#constitutes
+:constitutes rdf:type owl:ObjectProperty ;
+             rdfs:domain :Value ;
+             rdfs:range :Payload .
 
 
-###  https://onto.colossi.network/cdo#centeredBy
-:centeredBy rdf:type owl:ObjectProperty ;
-            rdfs:domain :Data ;
-            rdfs:range :Event .
+###  https://onto.colossi.network/cdo#contextualizes
+:contextualizes rdf:type owl:ObjectProperty ;
+                rdfs:domain :Concept ;
+                rdfs:range :Object .
 
 
-###  https://onto.colossi.network/cdo#exchangedIn
-:exchangedIn rdf:type owl:ObjectProperty ;
-             rdfs:domain :Data ;
-             rdfs:range :Packet .
+###  https://onto.colossi.network/cdo#defines
+:defines rdf:type owl:ObjectProperty ;
+         rdfs:domain :Concept ;
+         rdfs:range :Goal .
 
 
-###  https://onto.colossi.network/cdo#forEvent
-:forEvent rdf:type owl:ObjectProperty ;
-          rdfs:domain :SovereignReason ;
-          rdfs:range :Event .
+###  https://onto.colossi.network/cdo#demonstrates
+:demonstrates rdf:type owl:ObjectProperty ;
+              rdfs:domain :Event ;
+              rdfs:range :Effect .
 
 
-###  https://onto.colossi.network/cdo#fromObservation
-:fromObservation rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Epistemic ;
-                 rdfs:range :Observation .
+###  https://onto.colossi.network/cdo#describedBy
+:describedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Concept ;
+             rdfs:range :Term .
+
+
+###  https://onto.colossi.network/cdo#enteredAs
+:enteredAs rdf:type owl:ObjectProperty ;
+           rdfs:domain :Data ;
+           rdfs:range :Event .
+
+
+###  https://onto.colossi.network/cdo#exchangedThrough
+:exchangedThrough rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Data ;
+                  rdfs:range :Action .
+
+
+###  https://onto.colossi.network/cdo#formsBasisOf
+:formsBasisOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Context ;
+              rdfs:range :Package .
 
 
 ###  https://onto.colossi.network/cdo#hasAttributes
@@ -78,178 +98,196 @@
                rdfs:range :Attribute .
 
 
-###  https://onto.colossi.network/cdo#hasConcept
-:hasConcept rdf:type owl:ObjectProperty ;
-            rdfs:domain :ConsensualScheme ;
-            rdfs:range :Concept .
-
-
-###  https://onto.colossi.network/cdo#hasConsensualScheme
-:hasConsensualScheme rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Data ;
-                     rdfs:range :ConsensualScheme .
-
-
-###  https://onto.colossi.network/cdo#hasConsensus
-:hasConsensus rdf:type owl:ObjectProperty ;
-              rdfs:domain :ConsensualScheme ;
-              rdfs:range :Consensus .
-
-
-###  https://onto.colossi.network/cdo#hasConsensusOnSubGraphOf
-:hasConsensusOnSubGraphOf rdf:type owl:ObjectProperty ;
-                          rdfs:domain :Knowledge ;
-                          rdfs:range :Scheme .
-
-
-###  https://onto.colossi.network/cdo#hasConsensusOnSubSchema
-:hasConsensusOnSubSchema rdf:type owl:ObjectProperty ;
-                         rdfs:domain :Schema ;
-                         rdfs:range :Scheme .
-
-
-###  https://onto.colossi.network/cdo#hasContext
-:hasContext rdf:type owl:ObjectProperty ;
-            rdfs:domain :Concept ;
-            rdfs:range :Context .
-
-
-###  https://onto.colossi.network/cdo#hasField
-:hasField rdf:type owl:ObjectProperty ;
-          rdfs:domain :Event ;
-          rdfs:range :Field .
+###  https://onto.colossi.network/cdo#hasCausality
+:hasCausality rdf:type owl:ObjectProperty ;
+              rdfs:domain :Event ;
+              rdfs:range :Reason .
 
 
 ###  https://onto.colossi.network/cdo#hasForm
 :hasForm rdf:type owl:ObjectProperty ;
-         rdfs:domain :Structure ;
+         rdfs:domain :Attribute ;
          rdfs:range :Form .
-
-
-###  https://onto.colossi.network/cdo#hasFrame
-:hasFrame rdf:type owl:ObjectProperty ;
-          rdfs:domain :Concept ;
-          rdfs:range :Frame .
 
 
 ###  https://onto.colossi.network/cdo#hasIntelligence
 :hasIntelligence rdf:type owl:ObjectProperty ;
                  rdfs:domain :Action ;
-                 rdfs:range :Intelligence .
+                 rdfs:range :Reason .
 
 
-###  https://onto.colossi.network/cdo#hasLogEntry
-:hasLogEntry rdf:type owl:ObjectProperty ;
-             rdfs:domain :Event ;
-             rdfs:range :LogEntry .
+###  https://onto.colossi.network/cdo#hasKnowledge
+:hasKnowledge rdf:type owl:ObjectProperty ;
+              rdfs:domain :Concept ;
+              rdfs:range :Scheme .
 
 
-###  https://onto.colossi.network/cdo#hasNotice
-:hasNotice rdf:type owl:ObjectProperty ;
-           rdfs:domain :Concept ;
-           rdfs:range :Notice .
+###  https://onto.colossi.network/cdo#hasLineage
+:hasLineage rdf:type owl:ObjectProperty ;
+            rdfs:domain :Track ;
+            rdfs:range :Stemma .
 
 
-###  https://onto.colossi.network/cdo#hasPacket
-:hasPacket rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#hasStructure
+:hasStructure rdf:type owl:ObjectProperty ;
+              rdfs:domain :Object ;
+              rdfs:range :Scheme .
+
+
+###  https://onto.colossi.network/cdo#hasValidity
+:hasValidity rdf:type owl:ObjectProperty ;
+             rdfs:domain :Fact ;
+             rdfs:range :Package .
+
+
+###  https://onto.colossi.network/cdo#initiates
+:initiates rdf:type owl:ObjectProperty ;
            rdfs:domain :Action ;
-           rdfs:range :Packet .
+           rdfs:range :Cause .
 
 
-###  https://onto.colossi.network/cdo#hasPayload
-:hasPayload rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#instanceOf
+:instanceOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Action ;
+            rdfs:range :Method .
+
+
+###  https://onto.colossi.network/cdo#isAchieved
+:isAchieved rdf:type owl:ObjectProperty ;
+            rdfs:domain :Event ;
+            rdfs:range :Goal .
+
+
+###  https://onto.colossi.network/cdo#isAddressedBy
+:isAddressedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :Effect ;
+               rdfs:range :Scheme .
+
+
+###  https://onto.colossi.network/cdo#isAffectedBy
+:isAffectedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Object ;
+              rdfs:range :Cause .
+
+
+###  https://onto.colossi.network/cdo#isBasisFor
+:isBasisFor rdf:type owl:ObjectProperty ;
             rdfs:domain :Packet ;
-            rdfs:range :Payload .
+            rdfs:range :Fact .
 
 
-###  https://onto.colossi.network/cdo#hasPayloadValue
-:hasPayloadValue rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Payload ;
-                 rdfs:range :Value .
+###  https://onto.colossi.network/cdo#isCausal
+:isCausal rdf:type owl:ObjectProperty ;
+          rdfs:domain :Object ;
+          rdfs:range :Effect .
 
 
-###  https://onto.colossi.network/cdo#hasReason
-:hasReason rdf:type owl:ObjectProperty ;
-           rdfs:domain :SovereignReason ;
-           rdfs:range :Reason .
+###  https://onto.colossi.network/cdo#isContextual
+:isContextual rdf:type owl:ObjectProperty ;
+              rdfs:domain :Frame ;
+              rdfs:range :Context .
 
 
-###  https://onto.colossi.network/cdo#hasRecord
-:hasRecord rdf:type owl:ObjectProperty ;
-           rdfs:domain :Event ;
-           rdfs:range :Record .
-
-
-###  https://onto.colossi.network/cdo#hasSchema
-:hasSchema rdf:type owl:ObjectProperty ;
-           rdfs:domain :Object ;
-           rdfs:range :Schema .
-
-
-###  https://onto.colossi.network/cdo#hasScheme
-:hasScheme rdf:type owl:ObjectProperty ;
-           rdfs:domain :ConsensualScheme ;
-           rdfs:range :Scheme .
-
-
-###  https://onto.colossi.network/cdo#hasSovereignity
-:hasSovereignity rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Agent ;
-                 rdfs:range :Sovereignity .
-
-
-###  https://onto.colossi.network/cdo#hasTerm
-:hasTerm rdf:type owl:ObjectProperty ;
-         rdfs:domain :Concept ;
-         rdfs:range :Literal .
-
-
-###  https://onto.colossi.network/cdo#hasTexttual
-:hasTexttual rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#isDefinedBy
+:isDefinedBy rdf:type owl:ObjectProperty ;
              rdfs:domain :Object ;
-             rdfs:range :Text .
+             rdfs:range :Attribute .
 
 
-###  https://onto.colossi.network/cdo#hasValuePart
-:hasValuePart rdf:type owl:ObjectProperty ;
-              rdfs:domain :Fact ;
-              rdfs:range :Value .
+###  https://onto.colossi.network/cdo#isDocumentedIn
+:isDocumentedIn rdf:type owl:ObjectProperty ;
+                rdfs:domain :Term ;
+                rdfs:range :Notice .
 
 
-###  https://onto.colossi.network/cdo#inLog
-:inLog rdf:type owl:ObjectProperty ;
-       rdfs:domain :LogEntry ;
-       rdfs:range :Log .
+###  https://onto.colossi.network/cdo#isExpressedAs
+:isExpressedAs rdf:type owl:ObjectProperty ;
+               rdfs:domain :Concept ;
+               rdfs:range :Method .
 
 
-###  https://onto.colossi.network/cdo#isFactual
-:isFactual rdf:type owl:ObjectProperty ;
+###  https://onto.colossi.network/cdo#isFramedBy
+:isFramedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Notice ;
+            rdfs:range :Frame .
+
+
+###  https://onto.colossi.network/cdo#isJustifiedBy
+:isJustifiedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :Method ;
+               rdfs:range :Reason .
+
+
+###  https://onto.colossi.network/cdo#isLogged
+:isLogged rdf:type owl:ObjectProperty ;
+          rdfs:domain :Field ;
+          rdfs:range :Log .
+
+
+###  https://onto.colossi.network/cdo#isStemmatic
+:isStemmatic rdf:type owl:ObjectProperty ;
+             rdfs:domain :Log ;
+             rdfs:range :Record .
+
+
+###  https://onto.colossi.network/cdo#isSystemic
+:isSystemic rdf:type owl:ObjectProperty ;
+            rdfs:domain :Form ;
+            rdfs:range :Schema .
+
+
+###  https://onto.colossi.network/cdo#isTextual
+:isTextual rdf:type owl:ObjectProperty ;
+           rdfs:domain :Schema ;
+           rdfs:range :Text .
+
+
+###  https://onto.colossi.network/cdo#isTractual
+:isTractual rdf:type owl:ObjectProperty ;
+            rdfs:domain :Record ;
+            rdfs:range :Track .
+
+
+###  https://onto.colossi.network/cdo#isTransmittedBy
+:isTransmittedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Payload ;
+                 rdfs:range :Packet .
+
+
+###  https://onto.colossi.network/cdo#occursIn
+:occursIn rdf:type owl:ObjectProperty ;
+          rdfs:domain :Event ;
+          rdfs:range :Field .
+
+
+###  https://onto.colossi.network/cdo#processes
+:processes rdf:type owl:ObjectProperty ;
            rdfs:domain :Action ;
-           rdfs:range :Fact .
+           rdfs:range :Value .
 
 
-###  https://onto.colossi.network/cdo#isTracaebleIn
-:isTracaebleIn rdf:type owl:ObjectProperty ;
-               rdfs:domain :LogEntry ;
-               rdfs:range :Topology .
+###  https://onto.colossi.network/cdo#traces
+:traces rdf:type owl:ObjectProperty ;
+        rdfs:domain :Stemma ;
+        rdfs:range :Effect .
 
 
-###  https://onto.colossi.network/cdo#nodeIn
-:nodeIn rdf:type owl:ObjectProperty ;
-        rdfs:domain :Concept ;
-        rdfs:range :Knowledge .
+###  https://onto.colossi.network/cdo#triggers
+:triggers rdf:type owl:ObjectProperty ;
+          rdfs:domain :Action ;
+          rdfs:range :Event .
 
 
-###  https://onto.colossi.network/cdo#recordOf
-:recordOf rdf:type owl:ObjectProperty ;
-          rdfs:domain :Record ;
-          rdfs:range :Data .
+###  https://onto.colossi.network/cdo#underpins
+:underpins rdf:type owl:ObjectProperty ;
+           rdfs:domain :Text ;
+           rdfs:range :Stemma .
 
 
-###  https://onto.colossi.network/cdo#sovereignBy
-:sovereignBy rdf:type owl:ObjectProperty ;
-             rdfs:domain :SovereignReason ;
-             rdfs:range :Sovereignity .
+###  https://onto.colossi.network/cdo#utlizes
+:utlizes rdf:type owl:ObjectProperty ;
+         rdfs:domain :Package ;
+         rdfs:range :Method .
 
 
 #################################################################
@@ -258,23 +296,12 @@
 
 ###  https://onto.colossi.network/cdo#Action
 :Action rdf:type owl:Class ;
-        rdfs:subClassOf :Objective ,
-                        :Systematic .
+        rdfs:subClassOf :Active .
 
 
 ###  https://onto.colossi.network/cdo#Active
 :Active rdf:type owl:Class ;
         rdfs:subClassOf :Behaviour .
-
-
-###  https://onto.colossi.network/cdo#Agent
-:Agent rdf:type owl:Class ;
-       rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#ArtificialIntelligence
-:ArtificialIntelligence rdf:type owl:Class ;
-                        rdfs:subClassOf :Intelligence .
 
 
 ###  https://onto.colossi.network/cdo#Attribute
@@ -284,7 +311,7 @@
 
 ###  https://onto.colossi.network/cdo#Behaviour
 :Behaviour rdf:type owl:Class ;
-           rdfs:subClassOf :Disposition .
+           rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#CDOThing
@@ -293,25 +320,14 @@
           rdfs:comment "CDOThing is the top CDO class."^^xsd:string .
 
 
-###  https://onto.colossi.network/cdo#Causable
-:Causable rdf:type owl:Class ;
-          rdfs:subClassOf :Disposition .
+###  https://onto.colossi.network/cdo#Cause
+:Cause rdf:type owl:Class ;
+       rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Concept
 :Concept rdf:type owl:Class ;
-         rdfs:subClassOf :Epistemic ,
-                         :Subjective .
-
-
-###  https://onto.colossi.network/cdo#ConsensualScheme
-:ConsensualScheme rdf:type owl:Class ;
-                  rdfs:subClassOf :Mereology .
-
-
-###  https://onto.colossi.network/cdo#Consensus
-:Consensus rdf:type owl:Class ;
-           rdfs:subClassOf :CDOThing .
+         rdfs:subClassOf :Subjective .
 
 
 ###  https://onto.colossi.network/cdo#Context
@@ -324,27 +340,20 @@
       rdfs:subClassOf :CDOThing .
 
 
-###  https://onto.colossi.network/cdo#Disposition
-:Disposition rdf:type owl:Class ;
-             rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Epistemic
-:Epistemic rdf:type owl:Class ;
-           rdfs:subClassOf :CDOThing .
+###  https://onto.colossi.network/cdo#Effect
+:Effect rdf:type owl:Class ;
+        rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Event
 :Event rdf:type owl:Class ;
-       rdfs:subClassOf :Active ,
-                       :Causable ,
-                       :Stemmatic .
+       rdfs:subClassOf :Objective .
 
 
 ###  https://onto.colossi.network/cdo#Fact
 :Fact rdf:type owl:Class ;
       rdfs:subClassOf :CDOThing ;
-      rdfs:comment "A Value is factual once a Packet's ACK is received."^^xsd:string .
+      rdfs:comment "A Value is factual once a Packet's ACK (acknowledgement) message is received."^^xsd:string .
 
 
 ###  https://onto.colossi.network/cdo#Field
@@ -362,25 +371,9 @@
        rdfs:subClassOf :CDOThing .
 
 
-###  https://onto.colossi.network/cdo#HumanIntelligence
-:HumanIntelligence rdf:type owl:Class ;
-                   rdfs:subClassOf :Intelligence .
-
-
-###  https://onto.colossi.network/cdo#Intelligence
-:Intelligence rdf:type owl:Class ;
-              rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Knowledge
-:Knowledge rdf:type owl:Class ;
-           rdfs:subClassOf :Mereology ;
-           rdfs:comment "A Knowledge Graph that stores wat is known by the agent about the Concept."^^xsd:string .
-
-
-###  https://onto.colossi.network/cdo#Literal
-:Literal rdf:type owl:Class ;
-         rdfs:subClassOf :CDOThing .
+###  https://onto.colossi.network/cdo#Goal
+:Goal rdf:type owl:Class ;
+      rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Log
@@ -388,19 +381,9 @@
      rdfs:subClassOf :CDOThing .
 
 
-###  https://onto.colossi.network/cdo#LogEntry
-:LogEntry rdf:type owl:Class ;
-          rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Mereology
-:Mereology rdf:type owl:Class ;
-           rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Morphological
-:Morphological rdf:type owl:Class ;
-               rdfs:subClassOf :CDOThing .
+###  https://onto.colossi.network/cdo#Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Notice
@@ -410,10 +393,7 @@
 
 ###  https://onto.colossi.network/cdo#Object
 :Object rdf:type owl:Class ;
-        rdfs:subClassOf :Morphological ,
-                        :Passive ,
-                        :Structure ,
-                        :Systemic .
+        rdfs:subClassOf :Passive .
 
 
 ###  https://onto.colossi.network/cdo#Objective
@@ -421,9 +401,9 @@
            rdfs:subClassOf :Perspective .
 
 
-###  https://onto.colossi.network/cdo#Observation
-:Observation rdf:type owl:Class ;
-             rdfs:subClassOf :CDOThing .
+###  https://onto.colossi.network/cdo#Package
+:Package rdf:type owl:Class ;
+         rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Packet
@@ -443,7 +423,7 @@
 
 ###  https://onto.colossi.network/cdo#Perspective
 :Perspective rdf:type owl:Class ;
-             rdfs:subClassOf :Disposition .
+             rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Reason
@@ -463,27 +443,12 @@
 
 ###  https://onto.colossi.network/cdo#Scheme
 :Scheme rdf:type owl:Class ;
-        rdfs:subClassOf :Mereology .
+        rdfs:subClassOf :CDOThing .
 
 
-###  https://onto.colossi.network/cdo#SovereignReason
-:SovereignReason rdf:type owl:Class ;
-                 rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Sovereignity
-:Sovereignity rdf:type owl:Class ;
-              rdfs:subClassOf :CDOThing .
-
-
-###  https://onto.colossi.network/cdo#Stemmatic
-:Stemmatic rdf:type owl:Class ;
-           rdfs:subClassOf :Behaviour .
-
-
-###  https://onto.colossi.network/cdo#Structure
-:Structure rdf:type owl:Class ;
-           rdfs:subClassOf :Mereology .
+###  https://onto.colossi.network/cdo#Stemma
+:Stemma rdf:type owl:Class ;
+        rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Subjective
@@ -491,14 +456,9 @@
             rdfs:subClassOf :Perspective .
 
 
-###  https://onto.colossi.network/cdo#Systematic
-:Systematic rdf:type owl:Class ;
-            rdfs:subClassOf :Behaviour .
-
-
-###  https://onto.colossi.network/cdo#Systemic
-:Systemic rdf:type owl:Class ;
-          rdfs:subClassOf :Mereology .
+###  https://onto.colossi.network/cdo#Term
+:Term rdf:type owl:Class ;
+      rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Text
@@ -506,12 +466,14 @@
       rdfs:subClassOf :CDOThing .
 
 
-###  https://onto.colossi.network/cdo#Topology
-:Topology rdf:type owl:Class ;
-          rdfs:subClassOf :Mereology .
+###  https://onto.colossi.network/cdo#Track
+:Track rdf:type owl:Class ;
+       rdfs:subClassOf :CDOThing .
 
 
 ###  https://onto.colossi.network/cdo#Value
 :Value rdf:type owl:Class ;
        rdfs:subClassOf :CDOThing .
 
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
